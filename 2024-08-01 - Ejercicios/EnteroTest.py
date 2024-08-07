@@ -39,13 +39,23 @@ class TestMain(unittest.TestCase):
 
     def test_dividir_enteros(self):
         num1 = 10
-        num2 = 5
+        num2 = 20
 
         entero1 = Entero(num1)
         entero2= Entero(num2)
         res = entero1.dividir(entero2)
         self.assertEqual(num1//num2, res.number)
     
+    def test_dividir_por_0(self):
+        num1 = 10
+        num2 = 0
+
+        entero1 = Entero(num1)
+        entero2= Entero(num2)
+        
+        with self.assertRaises(ZeroDivisionError):
+            res = entero1.dividir(entero2)
+        
     def test_number_is_negative(self):
         num = -10
 
@@ -62,7 +72,7 @@ class TestMain(unittest.TestCase):
         self.assertTrue(entero.is_positive())
         self.assertFalse(entero.is_zero())
 
-    def test_number_is_negative(self):
+    def test_number_is_zero(self):
         num = 0
 
         entero = Entero(num)
@@ -93,7 +103,6 @@ class TestMain(unittest.TestCase):
         self.assertTrue(entero1.mayor_o_igual(entero3))
         self.assertFalse(entero3.mayor_o_igual(entero1))
         
-
     def test_entero_menor(self):
         num1 = 60
         num2 = 10 

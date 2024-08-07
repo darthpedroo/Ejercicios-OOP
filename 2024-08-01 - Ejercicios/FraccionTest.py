@@ -30,7 +30,7 @@ class TestMain(unittest.TestCase):
     
     def test_simplify(self):
         numerador = 10
-        denominador = 0
+        denominador = 3
 
         entero1  = Entero(numerador)
         entero2  = Entero(denominador)
@@ -48,6 +48,8 @@ class TestMain(unittest.TestCase):
         denominador1 = 20
         numerador2 = 5
         denominador2 = 10
+        numerador3 = 50
+        denominador3 = 12321310
 
 
         entero1  = Entero(numerador1)
@@ -59,7 +61,12 @@ class TestMain(unittest.TestCase):
 
         fraccion2 = Fraccion(entero3,entero4)
 
+        entero5 = Entero(numerador3)
+        entero6 = Entero(denominador3)
+        fraccion3 = Fraccion(entero5, entero6)
+
         self.assertTrue(fraccion1.check_if_two_fractions_are_equivalent(fraccion2))
+        self.assertFalse(fraccion1.check_if_two_fractions_are_equivalent(fraccion3))
         
     def test_sumar(self):
         numerador1 = 10
